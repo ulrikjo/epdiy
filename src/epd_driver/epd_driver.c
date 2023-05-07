@@ -30,6 +30,7 @@ EpdRect epd_full_screen() {
 }
 
 void epd_clear() { epd_clear_area(epd_full_screen()); }
+void epd_clear_black() { epd_clear_area(epd_full_screen()); }
 
 void epd_draw_hline(int x, int y, int length, uint8_t color,
                     uint8_t *framebuffer) {
