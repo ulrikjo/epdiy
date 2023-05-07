@@ -215,6 +215,9 @@ void epd_poweroff();
 
 /** Clear the whole screen by flashing it. */
 void epd_clear();
+    
+ /** Clear the whole screen by flashing it. */
+void epd_clear_black();
 
 /**
  * Clear an area by flashing it.
