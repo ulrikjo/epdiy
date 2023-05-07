@@ -154,10 +154,23 @@ void epd_hl_set_all_white(EpdiyHighlevelState* state) {
   memset(state->front_fb, 0xFF, fb_size);
 }
 
+void epd_hl_set_all_black(EpdiyHighlevelState* state) {
+  assert(state != NULL);
+  memset(state->front_fb, 0x0, fb_size);
+}
+
 void epd_fullclear(EpdiyHighlevelState* state, int temperature) {
   assert(state != NULL);
   epd_hl_set_all_white(state);
   enum EpdDrawError err = epd_hl_update_screen(state, MODE_GC16, temperature);
   assert(err == EPD_DRAW_SUCCESS);
   epd_clear();
+}
+
+void epd_fullclear_black(EpdiyHighlevelState* state, int temperature) {
+  assert(state != NULL);
+  epd_hl_set_all_black(state);
+  enum EpdDrawError err = epd_hl_update_screen(state, MODE_GC16, temperature);
+  assert(err == EPD_DRAW_SUCCESS);
+  epd_clear_black();
 }
